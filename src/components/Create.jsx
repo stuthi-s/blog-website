@@ -35,19 +35,19 @@ const Create = () => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
+
         <label>Blog body:</label>
         <textarea
           required
           value={body}
           onChange={(e) => setBody(e.target.value)}
-          placeholder="Blog body"
-        ></textarea>
+          placeholder="Blog body">
+        </textarea>
 
         <label>Blog author:</label>
         <select
           value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-        >
+          onChange={(e) => setAuthor(e.target.value)}>
           <option value="Stuthi">Stuthi</option>
           <option value="Shristi">Shristi</option>
         </select>

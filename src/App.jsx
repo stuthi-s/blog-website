@@ -4,6 +4,7 @@ import Create from './components/Create';
 import BlogDetails from './components/BlogDetails';
 import NotFound from './components/NotFound';
 import Home from './components/Home';
+import Edit from './components/Edit';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/create" element={<Create />} />
             <Route path="/blogs/:id" element={<BlogDetails />} />
+            <Route path="/edit/:id" element={<Edit />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
@@ -25,4 +27,3 @@ function App() {
 }
 
 export default App;
-
