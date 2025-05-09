@@ -1,42 +1,59 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
-const useFetch = (url) => {
+const useFetch = (url, options = {}) => {
   const [data, setData] = useState(null);
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState(null);
 
+  const memoizedOptions = useMemo(() => options, [JSON.stringify(options)]);
+
   useEffect(() => {
-
     const abortCont = new AbortController();
+    const maxRetries = memoizedOptions.retries || 0;
+    let retryCount = 0;
 
-    setIsPending(true)
+    const fetchData = async () => {
+      setIsPending(true);
+      setError(null);
 
-    fetch(url, { signal: abortCont.signal })
-      .then((res) => {
-        if (!res.ok) {
-          throw Error('Could not fetch data');
+      try {
+        const response = await fetch(url, { 
+          ...memoizedOptions,
+          signal: abortCont.signal 
+        });
+
+        if (!response.ok) {
+          throw Error(`Failed to fetch data: ${response.status} ${response.statusText}`);
         }
-        //console.log("Response: ",res)
-        //console.log("Response in json: ",res.json())
 
-        return res.json();
-      })
-      .then((data) => {
-        console.log("Response: ", data);
-        setData(data);
-        setError(null);
-      })
-      .catch((err) => {
-        if (err.name !== 'AbortError') {
-          setError(err.message);
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+          throw Error('Response is not JSON');
         }
-      })
-      .finally(() => setIsPending(false));
+
+        const jsonData = await response.json();
+        setData(jsonData);
+      } catch (err) {
+        if (err.name === 'AbortError') {
+          return;
+        }
+
+        if (retryCount < maxRetries) {
+          retryCount++;
+          await new Promise(resolve => setTimeout(resolve, 1000 * retryCount));
+          return fetchData();
+        }
+
+        setError(err.message);
+      } finally {
+        setIsPending(false);
+      }
+    };
+
+    fetchData();
 
     return () => abortCont.abort();
-
-
-  }, [url]);
+  }, [url, memoizedOptions]);
 
   return { data, isPending, error };
 }

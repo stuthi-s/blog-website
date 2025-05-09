@@ -43,7 +43,7 @@ const Edit = () => {
         <input
           type="text"
           value={title} 
-          disabled/>
+          />
 
         <label>Blog Body:</label>
         <textarea
@@ -56,7 +56,7 @@ const Edit = () => {
         <input
           type="text"
           value={author}
-          disabled />
+          />
 
         <button type="submit">Save Changes</button>
       </form>
