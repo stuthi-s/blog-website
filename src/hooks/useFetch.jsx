@@ -44,7 +44,7 @@ const useFetch = (url, options = {}) => {
           return fetchData();
         }
 
-        setError(err.message);
+          setError(err.message);
       } finally {
         setIsPending(false);
       }

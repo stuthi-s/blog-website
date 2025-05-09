@@ -23,6 +23,15 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
+.navbar .blog-title {
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar .blog-title:hover {
+  background-color: transparent;
+}
+
 .navbar h1 {
   color: #7c5dfa;
   font-size: 1.8rem;
@@ -59,6 +68,7 @@ body {
   border-radius: 12px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease;
+  position: relative;
 }
 
 .blog-preview:hover {
@@ -68,6 +78,8 @@ body {
 .blog-preview a {
   text-decoration: none;
   color: inherit;
+  display: block;
+  margin-bottom: 1rem;
 }
 
 .blog-preview h2 {
@@ -79,6 +91,48 @@ body {
 .blog-preview p {
   color: #666;
   font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.blog-preview .blog-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.blog-preview .btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  width: 80px;
+  height: 36px;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.blog-preview .btn-edit {
+  background-color: #7c5dfa;
+  color: white;
+}
+
+.blog-preview .btn-edit:hover {
+  background-color: #6a4de8;
+}
+
+.blog-preview .btn-delete {
+  background-color: #ff6b6b;
+  color: white;
+}
+
+.blog-preview .btn-delete:hover {
+  background-color: #ff5252;
 }
 
 .blog-details {
@@ -102,6 +156,12 @@ body {
 .blog-details div {
   line-height: 1.8;
   color: #4a4a4a;
+  margin-bottom: 2rem;
+}
+
+.blog-details .blog-actions {
+  display: flex;
+  gap: 1rem;
 }
 
 .create, .edit {
@@ -145,8 +205,7 @@ body {
 }
 
 .create button,
-.edit button,
-.btn {
+.edit button {
   background: #7c5dfa;
   color: white;
   border: none;
@@ -160,13 +219,8 @@ body {
 }
 
 .create button:hover,
-.edit button:hover,
-.btn:hover {
+.edit button:hover {
   background: #6a4de8;
-}
-
-.btn + .btn {
-  margin-left: 1rem;
 }
 
 .not-found {

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import API_URL from "../config";
 
 const Edit = () => {
   const { id } = useParams(); 
@@ -9,7 +10,7 @@ const Edit = () => {
   const navigate = useNavigate(); 
 
   useEffect(() => {
-    fetch('http://localhost:8000/blogs/' + id)
+    fetch(`${API_URL}/blogs/${id}`)
       .then((res) => res.json()) 
       .then((data) => {
         setTitle(data.title);   
@@ -22,7 +23,7 @@ const Edit = () => {
     e.preventDefault(); 
     const updatedBlog = { title, body, author }; 
 
-    fetch('http://localhost:8000/blogs/' + id, {
+    fetch(`${API_URL}/blogs/${id}`, {
       method: 'PUT', 
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedBlog), 
