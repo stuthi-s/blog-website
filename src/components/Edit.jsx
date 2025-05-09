@@ -20,7 +20,7 @@ const Edit = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault(); 
-    const updatedBlog = { body }; 
+    const updatedBlog = { title, body, author }; 
 
     fetch('http://localhost:8000/blogs/' + id, {
       method: 'PUT', 
@@ -28,7 +28,7 @@ const Edit = () => {
       body: JSON.stringify(updatedBlog), 
     })
       .then(() => {
-        navigate(`/blog/${id}`); 
+        navigate(`/blogs/${id}`); 
       })
       .catch((error) => {
         console.error("Error updating blog:", error);
@@ -42,21 +42,25 @@ const Edit = () => {
         <label>Blog Title:</label>
         <input
           type="text"
-          value={title} 
-          />
+          required
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
 
         <label>Blog Body:</label>
         <textarea
           required
-          value={body} 
-          onChange={(e) => setBody(e.target.value)}>
-        </textarea>
+          value={body}
+          onChange={(e) => setBody(e.target.value)}
+        />
 
         <label>Blog Author:</label>
         <input
           type="text"
+          required
           value={author}
-          />
+          onChange={(e) => setAuthor(e.target.value)}
+        />
 
         <button type="submit">Save Changes</button>
       </form>
