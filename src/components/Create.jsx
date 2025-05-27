@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import API_URL from "../config";
 
 const Create = () => {
   const [title, setTitle] = useState('');
@@ -12,7 +11,7 @@ const Create = () => {
     e.preventDefault();
     const blog = { title, body, author };
 
-    fetch(`${API_URL}/blogs`, {
+    fetch('http://localhost:8000/blogs', {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(blog),

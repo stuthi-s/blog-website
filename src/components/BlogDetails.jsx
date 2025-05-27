@@ -1,14 +1,13 @@
 import { useNavigate, useParams } from "react-router-dom";
 import useFetch from "./../hooks/useFetch";
-import API_URL from "../config";
 
 const BlogDetails = () => {
   const { id } = useParams();
-  const { data: blog, error, isPending } = useFetch(`${API_URL}/blogs/${id}`);
+  const { data: blog, error, isPending } = useFetch('http://localhost:8000/blogs/' + id);
   const navigate = useNavigate();
 
   const handleDeleteClick = () => {
-    fetch(`${API_URL}/blogs/${blog.id}`, {
+    fetch('http://localhost:8000/blogs/' + blog.id, {
       method: 'DELETE'
     }).then(() => {
       console.log('Blog deleted');
