@@ -80,7 +80,7 @@ body {
   color: inherit;
   display: block;
   margin-bottom: 1rem;
-}
+}  
 
 .blog-preview h2 {
   font-size: 1.5rem;
@@ -107,14 +107,11 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
+  text-align: center;
   border: none;
   width: 80px;
-  height: 36px;
   font-family: inherit;
-  box-sizing: border-box;
 }
 
 .blog-preview .btn-edit {

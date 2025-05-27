@@ -6,28 +6,41 @@ const Create = () => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [author, setAuthor] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
+    setError(null);
+    
     const blog = { title, body, author };
 
-    fetch(`${API_URL}/blogs`, {
-      method: 'POST',
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(blog),
-    })
-      .then(() => {
-        navigate('/');
-      })
-      .catch((error) => {
-        console.error("Error creating blog:", error);
+    try {
+      const response = await fetch(`${API_URL}/blogs`, {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(blog),
       });
+
+      if (!response.ok) {
+        throw new Error('Failed to create blog');
+      }
+
+      navigate('/');
+    } catch (error) {
+      setError(error.message);
+      console.error("Error creating blog:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
     <div className="create">
       <h2>Add a New Blog</h2>
+      {error && <div className="error" style={{ color: 'red', marginBottom: '1rem' }}>{error}</div>}
       <form onSubmit={handleSubmit}>
         <label>Blog title:</label>
         <input
@@ -52,7 +65,9 @@ const Create = () => {
           placeholder="Blog author"
         />
 
-        <button type="submit">Add Blog</button>
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? 'Adding Blog...' : 'Add Blog'}
+        </button>
       </form>
     </div>
   )

@@ -44,14 +44,14 @@ const Edit = () => {
         <input
           type="text"
           required
-          value={title}
+          value={title} 
           onChange={(e) => setTitle(e.target.value)}
-        />
+          />
 
         <label>Blog Body:</label>
         <textarea
           required
-          value={body}
+          value={body} 
           onChange={(e) => setBody(e.target.value)}
         />
 
@@ -61,7 +61,7 @@ const Edit = () => {
           required
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
-        />
+          />
 
         <button type="submit">Save Changes</button>
       </form>
