@@ -11,7 +11,7 @@ const Create = () => {
     e.preventDefault();
     const blog = { title, body, author };
 
-    fetch('http://localhost:8000/blogs/', {
+    fetch('http://localhost:3000/blogs/', {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(blog),
@@ -34,6 +34,7 @@ const Create = () => {
           required
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          placeholder="Blog title"
         />
 
         <label>Blog body:</label>
@@ -45,12 +46,13 @@ const Create = () => {
         </textarea>
 
         <label>Blog author:</label>
-        <select
+        <input
           value={author}
-          onChange={(e) => setAuthor(e.target.value)}>
-          <option value="Stuthi">Stuthi</option>
-          <option value="Shristi">Shristi</option>
-        </select>
+          onChange={(e) => setAuthor(e.target.value)}
+          placeholder="Blog author">
+          {/* <option value="Stuthi">Stuthi</option>
+          <option value="Shristi">Shristi</option> */}
+        </input>
 
         <button type="submit">Add Blog</button>
       </form>

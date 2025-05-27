@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const BlogList = ({ blogs }) => {
   return (
@@ -14,5 +15,14 @@ const BlogList = ({ blogs }) => {
     </div>
   )
 }
+BlogList.propTypes = {
+  blogs: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+      title: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
 
-export default BlogList;
+export default BlogList

@@ -3,11 +3,11 @@ import useFetch from "./../hooks/useFetch";
 
 const BlogDetails = () => {
   const { id } = useParams();
-  const { data: blog, error, isPending } = useFetch('http://localhost:8000/blogs/' + id);
+  const { data: blog, error, isPending } = useFetch('http://localhost:3000/blogs/' + id);
   const navigate = useNavigate();
 
   const handleDeleteClick = () => {
-    fetch('http://localhost:8000/blogs/' + blog.id, {
+    fetch('http://localhost:3000/blogs/' + blog.id, {
       method: 'DELETE'
     }).then(() => {
       console.log('Blog deleted');
@@ -29,8 +29,10 @@ const BlogDetails = () => {
           <p>Written by { blog.author }</p>
           <div>{ blog.body }</div>
 
-          <button className="btn btn-delete" onClick={handleDeleteClick}>Delete</button>
-          <button className="btn btn-edit" onClick={handleEditClick}>Edit</button>
+          <div className="button-container">
+            <button className="btn btn-delete" onClick={handleDeleteClick}>Delete</button>
+            <button className="btn btn-edit" onClick={handleEditClick}>Edit</button>
+          </div>
         </article>
       )}
     </div>

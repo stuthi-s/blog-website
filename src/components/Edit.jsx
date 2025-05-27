@@ -9,7 +9,7 @@ const Edit = () => {
   const navigate = useNavigate(); 
 
   useEffect(() => {
-    fetch('http://localhost:8000/blogs/' + id)
+    fetch('http://localhost:3000/blogs/' + id)
       .then((res) => res.json()) 
       .then((data) => {
         setTitle(data.title);   
@@ -22,7 +22,7 @@ const Edit = () => {
     e.preventDefault(); 
     const updatedBlog = { body }; 
 
-    fetch('http://localhost:8000/blogs/' + id, {
+    fetch('http://localhost:3000/blogs/' + id, {
       method: 'PUT', 
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedBlog), 
@@ -43,7 +43,7 @@ const Edit = () => {
         <input
           type="text"
           value={title} 
-          disabled/>
+          />
 
         <label>Blog Body:</label>
         <textarea
@@ -56,7 +56,7 @@ const Edit = () => {
         <input
           type="text"
           value={author}
-          disabled />
+          />
 
         <button type="submit">Save Changes</button>
       </form>
