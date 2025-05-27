@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 * {
   margin: 0;
@@ -7,26 +7,21 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
-  color: #4a4a4a;
-  background-color: #f0f4f8;
-  line-height: 1.6;
+  font-family: "Quicksand";
+  color: #333;
 }
 
 .navbar {
-  padding: 1.5rem 2rem;
+  padding: 20px;
   display: flex;
   align-items: center;
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #f2f2f2;
 }
 
 .navbar h1 {
-  color: #7c5dfa;
-  font-size: 1.8rem;
-  font-weight: 600;
+  color: #f1356d;
 }
 
 .navbar .links {
@@ -34,170 +29,171 @@ body {
 }
 
 .navbar a {
-  margin-left: 1.5rem;
+  margin-left: 16px;
   text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  padding: 6px;
 }
 
 .navbar a:hover {
-  color: #7c5dfa;
-  background-color: #f0f4f8;
+  color: #e32356;
 }
 
 .content {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 2rem;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
 }
 
 .blog-preview {
-  padding: 1.5rem;
-  margin: 1.5rem 0;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
+  padding: 10px 16px;
+  margin: 20px 0;
+  border-bottom: 1px solid #fafafa;
 }
 
 .blog-preview:hover {
-  transform: translateY(-2px);
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
 }
 
-.blog-preview a {
+.blog-preview a{
   text-decoration: none;
-  color: inherit;
-}
+}  
 
 .blog-preview h2 {
-  font-size: 1.5rem;
-  color: #7c5dfa;
-  margin-bottom: 0.5rem;
-}
-
-.blog-preview p {
-  color: #666;
-  font-size: 0.95rem;
-}
-
-.blog-details {
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  font-size: 20px;
+  color: #f1356d;
 }
 
 .blog-details h2 {
-  font-size: 2rem;
-  color: #7c5dfa;
-  margin-bottom: 1rem;
+  font-size: 20px;
+  color: #f1356d;
 }
 
-.blog-details p {
-  color: #666;
-  margin-bottom: 1.5rem;
-}
-
-.blog-details div {
-  line-height: 1.8;
-  color: #4a4a4a;
-}
-
-.create, .edit {
-  max-width: 600px;
+.create {
+  max-width: 400px;
   margin: 0 auto;
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.create h2, .edit h2 {
-  font-size: 1.8rem;
-  color: #7c5dfa;
-  margin-bottom: 1.5rem;
+.create h2 {
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 30px;
+}
+
+.create input, .create textarea, .create select {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+}
+
+.create button {
+  background: #f1356d;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.create button:hover {
+  background: #e32356;
+}
+
+.edit {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.edit h2 {
+  font-size: 24px;
+  color: #f1356d;
   text-align: center;
+  margin-bottom: 20px;
 }
 
-.create input,
-.create textarea,
-.create select,
+.edit label {
+  display: block;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
 .edit input[type="text"],
 .edit textarea {
   width: 100%;
-  padding: 0.8rem;
-  margin: 0.5rem 0 1.5rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  font-family: inherit;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
 }
 
-.create input:focus,
-.create textarea:focus,
-.create select:focus,
-.edit input[type="text"]:focus,
-.edit textarea:focus {
-  outline: none;
-  border-color: #7c5dfa;
+.edit textarea {
+  resize: vertical; 
+  min-height: 100px;
 }
 
-.create button,
-.edit button,
-.btn {
-  background: #7c5dfa;
-  color: white;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  cursor: pointer;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
+.edit input[disabled] {
+  background-color: #eee;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.edit button {
+  display: block;
   width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #f1356d;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.create button:hover,
-.edit button:hover,
-.btn:hover {
-  background: #6a4de8;
+.edit button:hover {
+  background-color: #e32356;
+}
+
+.edit form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.btn {
+  padding: 9px 12px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-delete {
+  background-color: #f1356d;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #e32356;
+}
+
+.btn-edit {
+  background-color: #f1356d;
+  color: white;
+}
+
+.btn-edit:hover {
+  background-color: #e32356;
 }
 
 .btn + .btn {
-  margin-left: 1rem;
-}
-
-.not-found {
-  text-align: center;
-  padding: 3rem 1rem;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  max-width: 600px;
-  margin: 2rem auto;
-}
-
-.not-found h2 {
-  font-size: 2rem;
-  color: #7c5dfa;
-  margin-bottom: 1rem;
-}
-
-.not-found p {
-  color: #666;
-  margin-bottom: 1.5rem;
-}
-
-.not-found a {
-  color: #7c5dfa;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.not-found a:hover {
-  color: #6a4de8;
-  text-decoration: underline;
+  margin-left: 30px;
 }

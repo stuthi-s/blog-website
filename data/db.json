@@ -1,10 +1,20 @@
 {
   "blogs": [
     {
-      "id": "aabe",
-      "title": "The Legacy of the Indus Valley Civilization",
-      "body": "The Indus Valley Civilization is one of the oldest in the world. It flourished around 2500 BCE in present-day India and Pakistan. Cities like Harappa and Mohenjo-Daro were known for their advanced town planning. They had well-laid streets, drainage systems, and brick houses. The people were skilled in crafts, trade, and agriculture. Their script remains undeciphered, adding mystery to their culture. The civilization showed a deep understanding of urban life. It traded with distant regions, including Mesopotamia. Its decline remains a topic of debate among historians. The Indus Valley remains a proud chapter in India’s ancient history.",
-      "author": "Stuthi"
+      "body": "Stuthi",
+      "id": "1"
+    },
+    {
+      "title": "Welcome",
+      "body": "Internship",
+      "author": "me",
+      "id": "2"
+    },
+    {
+      "id": "7cef",
+      "title": "My blog",
+      "body": "Kal Saturday hai",
+      "author": "Meeeeeee"
     }
   ]
 }
