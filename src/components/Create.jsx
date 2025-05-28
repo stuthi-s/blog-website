@@ -50,8 +50,6 @@ const Create = () => {
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
           placeholder="Blog author">
-          {/* <option value="Stuthi">Stuthi</option>
-          <option value="Shristi">Shristi</option> */}
         </input>
 
         <button type="submit">Add Blog</button>
